@@ -2,24 +2,15 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT || 5000;
 var cors = require('cors')
-// const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion } = require('mongodb');
 
 app.use(cors())
 app.use(express.json())
 require('dotenv').config()
 
-const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://lateef-creation:3EFDA47fXFGnxxs7@lateef-creation-portfol.s0jnuyt.mongodb.net/?retryWrites=true&w=majority";
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@lateef-creation-portfol.s0jnuyt.mongodb.net/?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
-// client.connect(err => {
-//   const collection = client.db("test").collection("devices");
-//   client.close();
-// });
 
-
-
-// const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@lateef-creation-portfol.s0jnuyt.mongodb.net/?retryWrites=true&w=majority`;
-// const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
 async function run() {
     try {
@@ -33,12 +24,12 @@ async function run() {
         res.send(data);
       });
   
-    //   app.post('/portfolio-upload', (req, res) =>{
-    //     const addData = req.body;
-    //     const result = portfolioUpload.insertOne(addData)
-    //     res.send(result)
+      app.post('/portfolio-upload', (req, res) =>{
+        const addData = req.body;
+        const result = portfolioUpload.insertOne(addData)
+        res.send(result)
   
-    //   })
+      })
       
     } finally {
       // await client.close();
