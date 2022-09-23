@@ -23,7 +23,8 @@ async function run() {
         const data = await cursor.toArray();
         res.send(data);
       });
-  
+
+
       app.post('/portfolio-upload', (req, res) =>{
         const addData = req.body;
         const result = portfolioUpload.insertOne(addData)
@@ -38,7 +39,7 @@ async function run() {
   run().catch(console.dir);
 
   app.get('/', (req, res) => {
-    res.send('Welcome to feedback form')
+    res.send('Welcome to Lateef Creation')
   })
   
   app.listen(port, () => {
