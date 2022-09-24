@@ -17,10 +17,10 @@ async function run() {
       await client.connect();
       const portfolioUpload = client.db('portfolio').collection('portfolio-data');
   
-      app.get('/portfolio-data', async (req,res) =>{
+      app.get('/portfolio-data',  (req,res) =>{
         const query = {};
         const cursor = portfolioUpload.find(query);
-        const data = await cursor.toArray();
+        const data =  cursor.toArray();
         res.send(data);
       });
 
