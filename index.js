@@ -24,14 +24,6 @@ async function run() {
         res.send(data);
       });
 
-      app.get('/data', async (req,res) =>{
-        const query = {};
-        const cursor = portfolioUpload.find(query);
-        const data = await cursor.toArray();
-        res.send(data);
-      });
-
-
       app.post('/portfolio-upload', (req, res) =>{
         const addData = req.body;
         const result = portfolioUpload.insertOne(addData)
