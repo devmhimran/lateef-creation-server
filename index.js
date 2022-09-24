@@ -8,7 +8,7 @@ app.use(cors())
 app.use(express.json())
 require('dotenv').config()
 
-const uri = "mongodb+srv://lateef-creation:01534871992@cluster0.q4n1u3x.mongodb.net/?retryWrites=true&w=majority";
+const uri = "mongodb+srv://lateef-creation:01534871992@cluster0.lbmxdci.mongodb.net/?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
 
