@@ -39,7 +39,7 @@ async function run() {
   run().catch(console.dir);
 
   app.get('/', (req, res) => {
-    res.send('Welcome to Lateef Creation')
+    res.send('Welcome to Lateef Creation V2')
   })
   
   app.listen(port, () => {
