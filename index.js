@@ -13,22 +13,14 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 
 
 async function run() {
-    try {
+
       await client.connect();
+
       const portfolioUpload = client.db('portfolio').collection('portfolio-data');
-  
       app.get('/portfolio-data', async (req,res) =>{
         const query = {};
         const cursor = portfolioUpload.find(query);
         const data = await cursor.toArray();
-        console.log('data-loaded')
-        res.send(data);
-      });
-      app.get('/', async (req,res) =>{
-        const query = {};
-        const cursor = portfolioUpload.find(query);
-        const data = await cursor.toArray();
-        console.log('data-loaded')
         res.send(data);
       });
 
@@ -39,9 +31,6 @@ async function run() {
   
       })
       
-    } finally {
-      // await client.close();
-    }
   }
   run().catch(console.dir);
 
