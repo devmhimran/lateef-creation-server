@@ -45,7 +45,7 @@ async function run() {
   }
   run().catch(console.dir);
 
-  app.get('/', (req, res) => {
+  app.get('/version', (req, res) => {
     res.send('Welcome to Lateef Creation V4')
   })
   
