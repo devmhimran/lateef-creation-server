@@ -24,6 +24,13 @@ async function run() {
         console.log('data-loaded')
         res.send(data);
       });
+      app.get('/', async (req,res) =>{
+        const query = {};
+        const cursor = portfolioUpload.find(query);
+        const data = await cursor.toArray();
+        console.log('data-loaded')
+        res.send(data);
+      });
 
       app.post('/portfolio-upload', (req, res) =>{
         const addData = req.body;
@@ -39,7 +46,7 @@ async function run() {
   run().catch(console.dir);
 
   app.get('/', (req, res) => {
-    res.send('Welcome to Lateef Creation V3')
+    res.send('Welcome to Lateef Creation V4')
   })
   
   app.listen(port, () => {
