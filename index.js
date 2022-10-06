@@ -19,7 +19,7 @@ async function run() {
     const portfolioUpload = client.db('portfolio').collection('portfolio-data');
     app.get('/portfolio-data', async (req, res) => {
       const query = {};
-      const cursor = portfolioUpload.find(query);
+      const cursor = await portfolioUpload.find(query);
       const data = await cursor.toArray();
       res.send(data);
     });
