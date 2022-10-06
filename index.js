@@ -13,8 +13,7 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 
 
 async function run() {
-  try {
-    await client.connect();
+  await client.connect();
 
     const portfolioUpload = client.db('portfolio').collection('portfolio-data');
     app.get('/portfolio-data', async (req, res) => {
@@ -30,9 +29,9 @@ async function run() {
       res.send(result)
 
     })
-  }  finally {
-    // await client.close();
-  }
+  // try {
+    
+  // }
   }
 run().catch(console.dir);
 
