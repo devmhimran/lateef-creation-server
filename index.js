@@ -12,9 +12,9 @@ const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@lateef-
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
 
-async function run() {
+ function run() {
 
-      await client.connect();
+       client.connect();
 
       const portfolioUpload = client.db('portfolio').collection('portfolio-data');
       app.get('/portfolio-data', async (req,res) =>{
@@ -32,7 +32,7 @@ async function run() {
       })
       
   }
-  run().catch(console.dir);
+  run()
 
   app.get('/', (req, res) => {
     res.send('Welcome to Lateef Creation V4')
