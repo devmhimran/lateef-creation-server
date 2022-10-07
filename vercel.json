@@ -10,13 +10,6 @@
         {
             "src": "/(.*)",
             "dest": "/"
-        },
-        {
-            "src": "/data",
-            "methods": [
-                "GET"
-            ],
-            "dest": "/index.js"
         }
     ]
 }
