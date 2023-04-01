@@ -41,6 +41,13 @@ async function run() {
       res.send(data);
     });
 
+    app.get('/portfolio-admin-data', verifyJWT, async (req, res) => {
+      const query = {};
+      const cursor = await portfolioData.find(query);
+      const data = await cursor.toArray();
+      res.send(data);
+    });
+
     app.post('/portfolio-upload', verifyJWT, (req, res) => {
       const addData = req.body;
       const result = portfolioData.insertOne(addData)
