@@ -40,6 +40,24 @@ async function run() {
       const data = await cursor.toArray();
       res.send(data);
     });
+    app.get('/category/:categoryName', async(req, res)=>{
+      const categoryName = req.params.categoryName;
+      const query = {category: categoryName}
+      // console.log(query)
+      const cursor = await portfolioData.find(query)
+      const data = await cursor.toArray();
+
+      res.send(data)
+    })
+
+
+    app.get('/user/:id', async (req, res) => {
+      const id = req.params.id;
+      const query = { uid: id }
+      const result = await userCollection.findOne(query)
+      res.send(result)
+    });
+
 
     app.get('/portfolio-admin-data', verifyJWT, async (req, res) => {
       const query = {};
