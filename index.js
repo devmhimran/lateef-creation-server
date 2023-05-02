@@ -93,6 +93,27 @@ async function run() {
       res.send({ result, token });
     })
 
+    app.put('/portfolio-admin-data', verifyJWT, async (req, res) => {
+      const newPortfolio = req.body;
+      console.log(newPortfolio)
+      // const options = { upsert: true };
+      // try {
+      //   for (let i = 0; i < newPortfolio.length; i++) {
+      //     const { _id, ...updateData } = newPortfolio[i];
+      //     console.log(`Updating document with id ${_id}`);
+      //     // console.log(updateData)
+      //     const result = await portfolioData.updateOne({ _id }, { $set: {...updateData} }, options);
+      //     if (result.modifiedCount !== 1) {
+      //       console.log(`Failed to update document with id ${_id}`);
+      //     }
+      //   }
+      //   res.status(200).send('Portfolio data updated successfully');
+      // } catch (err) {
+      //   console.error(err);
+      //   res.status(500).send('Internal Server Error');
+      // }
+    });
+
   }  finally {
     // await client.close();
   }
